@@ -24,6 +24,15 @@ const recipeSchema = new mongoose.Schema({
         type: [String],
         required: false
     },
+    instructions: {
+        type: [String],
+        required: false
+    },
+    catagory: {
+        type: String,
+        enum: ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert'],
+        required: false
+    }
 }, {
     timestamps: true // createdAt and updatedAt
 });
