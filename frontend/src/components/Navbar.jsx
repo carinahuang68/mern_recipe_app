@@ -5,9 +5,13 @@ import AddButton from "./buttons/AddButton";
 
 export default function Navbar() {
     return (
-        <div id="top" className='d-flex flex-column flex-md-row row-gap-2 shadow-bottom'>
+        <nav id="top" className='d-flex flex-column flex-md-row row-gap-2'>
             <Logo />
-            <AddButton />
-        </div>
+            <div className="d-flex justify-content-around">
+                <AddButton />
+                <button className='btn' style={{color: "var(--primary-color"}}>Login</button>
+                <button className='btn' style={{color: "var(--primary-color"}}>Register</button>
+            </div>
+        </nav>
     )
 }
