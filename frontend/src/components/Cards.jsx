@@ -10,7 +10,7 @@ export default function Cards() {
     return (
         
         <div className="container py-4">
-            <div className='row'>
+            <div className='row justify-content-center'>
                 <Card recipe={fakeRecipe} />
                 <Card recipe={fakeRecipe} />
                 <Card recipe={fakeRecipe} />

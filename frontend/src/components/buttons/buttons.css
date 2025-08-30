@@ -57,3 +57,11 @@ button {
 #card-buttons {
     width: 100%
 }
+
+.scale-button:hover {
+    transform: scale(1.1);
+}
+
+.underline-button:hover {
+    text-decoration: underline;
+}
