@@ -1,12 +1,15 @@
 import mongoose from "mongoose";
-import Recipe from '../models/recipe.model.js';
+import Recipe from '../models/Recipe.js';
 
-export const getAllRecipes = async (req, res) => {
+
+export const getRecipes = async (req, res) => {
+    const {category} = req.query;
     try {
-        const recipes = await Recipe.find();
+        const query = category ? {catagory: category} : {};
+        const recipes = await Recipe.find(query);
         res.status(200).json({success: true, data: recipes});
     } catch (error) {
-        console.error("Error in get recipes: ", error.message);
+        console.error("Error in get recipes by category: ", error.message);
         res.status(500).json({success: false, message: "Server error"});
     }
 }
@@ -32,10 +35,15 @@ export const addNewRecipe = async (req, res) => {
 export const deleteRecipe = async (req, res) => {
     const {id} = req.params;
     console.log("ID to be deleted: ", id);
+    const recipe = await Recipe.findById(id);
 
-    if (mongoose.Types.ObjectId.isValid(id) === false) {
+    if (!recipe) {
         res.status(404).json({success: false, message: "Recipe not found"});
         return;
+    }
+
+    if (recipe.createdBy.toString() !== req.user._id.toString()) {
+        return res.status(401).json({success: false, message: "Not authorized to delete this recipe"});
     }
 
     try {
@@ -50,22 +58,25 @@ export const deleteRecipe = async (req, res) => {
 
 export const updateRecipe = async (req, res) => {
     const {id} = req.params;
-    const recipe = req.body;
+    const recipe = Recipe.findById(id);
 
-    if (mongoose.Types.ObjectId.isValid(id) === false) {
-        res.status(404).json({success: false, message: "Recipe not found"});
-        return;
+    if (!recipe) {
+        return res.status(404).json({success: false, message: "Recipe not found"});
+    }
+
+    if (recipe.createdBy.toString() !== req.user._id.toString()) {
+        return res.status(401).json({success: false, message: "Not authorized to update this recipe"});
     }
 
     try {
-        await Recipe.findByIdAndUpdate(id, recipe, {new: true}).then(doc => console.log("Updated recipe: ", doc));  
+        await Recipe.findByIdAndUpdate(id, req.body, {new: true}).then(doc => console.log("Updated recipe: ", doc));  
         res.status(200).json({success: true, message: "Recipe updated successfully"});
     } catch (error) {
         res.status(500).json({success: false, message: "Server error"});
     }
 }
 
-export const getRecipe = async (req, res) => {
+export const getARecipe = async (req, res) => {
     const {id} = req.params;
     if (mongoose.Types.ObjectId.isValid(id) === false) {
         res.status(404).json({success: false, message: "Recipe not found"});
