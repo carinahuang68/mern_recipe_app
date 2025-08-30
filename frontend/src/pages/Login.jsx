@@ -44,7 +44,7 @@ export default function Login() {
                                 required/>
                         </div>
                         <div className='d-flex justify-content-between'>
-                            <button className='btn underline-button' onClick={() => navigate('/')} style={{color: 'var(--primary-color)'}}>Cancel</button>
+                            <button className='btn auth-btn' onClick={() => navigate('/')} style={{color: 'var(--primary-color)'}}>Cancel</button>
                             <button type="submit" className="btn btn-primary align-self-center scale-button" style={{ backgroundColor: 'var(--primary-color)', borderColor: 'var(--primary-color)' }}>Login</button>
                         </div>
 

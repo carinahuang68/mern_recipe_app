@@ -7,7 +7,7 @@ export const getRecipes = async (req, res) => {
     try {
         const query = category ? {catagory: category} : {};
         const recipes = await Recipe.find(query);
-        res.status(200).json({success: true, data: recipes});
+        res.status(200).json(recipes);
     } catch (error) {
         console.error("Error in get recipes by category: ", error.message);
         res.status(500).json({success: false, message: "Server error"});
@@ -25,7 +25,7 @@ export const addNewRecipe = async (req, res) => {
 
     try {
         await newRecipe.save();
-        res.status(201).json({success: true, data: newRecipe});
+        res.status(201).json(newRecipe);
     } catch (error) {
         console.error("Error in create recipe: ", error.message);
         res.status(500).json({success: false, message: "Server error"});
@@ -85,7 +85,7 @@ export const getARecipe = async (req, res) => {
 
     try {
         const recipe = await Recipe.findById(id);
-        res.status(200).json({success: true, data: recipe});
+        res.status(200).json(recipe);
     } catch (error) {
         console.error("Error in get recipe: ", error.message);
         res.status(500).json({success: false, message: "Server error"});

@@ -37,7 +37,7 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ success: false, message: "Invalid email or password" });
         }
         const token = generateToken(user._id);
-        res.json({ success: true, data: { username: user.username, email: user.email, id: user._id, token } });
+        res.json({ username: user.username, email: user.email, id: user._id, token });
     } catch (err) {
         res.status(500).json({ success: false, message: "Server error" });
     }
@@ -50,7 +50,7 @@ router.get('/me', protect, async (req, res) => {
 // Generate JWT token
 const generateToken = (id) => {
     return jwt.sign({id}, process.env.JWT_SECRET, {
-        expiresIn: '30d'
+        expiresIn: '7d'
     })
 }
 
