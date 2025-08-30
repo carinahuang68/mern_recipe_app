@@ -1,0 +1,59 @@
+button {
+    font-family: var(--primary-font);
+    transition: transform 0.4s ease, background-color 0.3s ease;
+}
+
+.mini-button {
+    color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+    width: 30px;
+    height: 30px;
+}
+
+#delete-btn {
+    background-color: #FFA8A8;
+}
+
+#delete-btn:hover {
+    background-color: #FF8383;
+}
+
+#edit-btn {
+    background-color: #A8C8FF;
+}
+
+#edit-btn:hover {
+    background-color: #70A5FF;
+}
+
+#view-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4rem 1.6rem;
+}
+
+#view-button:hover {
+    transform: scale(1.05);
+}
+
+#add-button {
+    background-color: var(--primary-color);
+    color: white;
+    font-family: var(--primary-font);
+    font-size: 1.2rem;
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 10px;
+}
+
+#add-button:hover {
+    background-color: #341D01;
+}
+
+#card-buttons {
+    width: 100%
+}

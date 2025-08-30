@@ -12,7 +12,7 @@ const recipeSchema = new mongoose.Schema({
     difficulty: {
         type: String,
         enum: ['Easy', 'Medium', 'Hard'],
-        required: true
+        required: false
     },
     rating: {
         type: Number,
@@ -20,18 +20,25 @@ const recipeSchema = new mongoose.Schema({
         max: 5,
         required: true
     },
-    ingredients: {
-        type: [String],
-        required: false
-    },
+    ingredients: [
+        {
+            type: String,
+            required: false
+        }
+    ],
     instructions: {
-        type: [String],
+        type: String,
         required: false
     },
     catagory: {
         type: String,
         enum: ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert'],
-        required: false
+        required: true
+    },
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true
     }
 }, {
     timestamps: true // createdAt and updatedAt

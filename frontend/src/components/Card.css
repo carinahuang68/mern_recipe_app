@@ -1,0 +1,12 @@
+
+.card-title {
+    font-weight: bold;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    transition: transform 0.4s ease;
+    cursor: pointer;
+}

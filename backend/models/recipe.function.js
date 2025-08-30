@@ -14,7 +14,7 @@ export const getAllRecipes = async (req, res) => {
 export const addNewRecipe = async (req, res) => {
     const recipe = req.body; // user will send this data
 
-    if (!recipe.name || !recipe.difficulty || !recipe.image || !recipe.rating) {
+    if (!recipe.name || !recipe.catagory || !recipe.image || !recipe.rating) {
         return res.status(400).json({success: false, message: "Please provide all fields"});
     }
 
