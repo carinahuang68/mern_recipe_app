@@ -3,6 +3,5 @@ main {
     background-color: var(--background-color);
     font-family: var(--primary-font);
     color: var(--primary-color);
-    padding: 1.5vh 10vw;
-    min-height: 100vh;
+    padding: 0vh 10vw;
 }

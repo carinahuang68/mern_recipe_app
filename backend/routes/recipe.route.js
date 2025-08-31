@@ -4,7 +4,7 @@ import { protect } from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.get("/", getRecipes);
+router.get("/", protect, getRecipes);
 router.post("/", protect, addNewRecipe);
 router.delete("/:id", protect, deleteRecipe);
 router.put("/:id", protect, updateRecipe);

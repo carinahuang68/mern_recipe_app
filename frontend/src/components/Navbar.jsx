@@ -20,14 +20,17 @@ export default function Navbar() {
             <Link to='/' className="align-self-center">
                 <Logo />
             </Link>
+            {
+                user && <div className='align-self-center'><h2 className='my-0 py-0'>{user.username}</h2></div>
+            }
             <div className="d-flex justify-content-around align-items-center">
                 {user ? (
-                    <>
+                    <div className="d-flex gap-3">
                         <Link to='/add'>
                             <AddButton />
                         </Link>
                         <button className='btn auth-btn' onClick={handleLogout}>Logout</button>
-                    </>
+                    </div>
                 ) : (
                     <div>
                         <Link to='/login'>

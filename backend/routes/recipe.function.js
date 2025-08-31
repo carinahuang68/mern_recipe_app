@@ -3,10 +3,11 @@ import Recipe from '../models/Recipe.js';
 
 
 export const getRecipes = async (req, res) => {
-    const {category} = req.query;
+    const {catagory} = req.query;
+    console.log(catagory);
     try {
-        const query = category ? {catagory: category} : {};
-        const recipes = await Recipe.find(query);
+        const query = catagory ? {catagory} : {};
+        const recipes = await Recipe.find({...query, createdBy: req.user._id});
         res.status(200).json(recipes);
     } catch (error) {
         console.error("Error in get recipes by category: ", error.message);
@@ -85,6 +86,7 @@ export const getARecipe = async (req, res) => {
 
     try {
         const recipe = await Recipe.findById(id);
+        console.log("Fetched recipe: ", recipe);
         res.status(200).json(recipe);
     } catch (error) {
         console.error("Error in get recipe: ", error.message);

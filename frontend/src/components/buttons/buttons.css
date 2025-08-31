@@ -83,3 +83,15 @@ button {
 .add-btn:hover {
     background-color: #70A5FF;
 }
+
+.catagory-btn {
+    border: 1px solid var(--primary-color);
+    background-color: white;
+    color: var(--primary-color);
+    padding: 0.6rem 1.2rem;
+}
+
+.catagory-btn:hover {
+    background-color: rgb(228, 228, 228);
+}
+
