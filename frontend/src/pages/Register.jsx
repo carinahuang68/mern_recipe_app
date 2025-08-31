@@ -35,7 +35,9 @@ export default function Register() {
                                 type="text"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)} 
-                                required/>
+                                required
+                                minLength={4}
+                                maxLength={8}/>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
@@ -51,6 +53,7 @@ export default function Register() {
                                 type="password" 
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
+                                minLength={4}
                                 required/>
                         </div>
                         <div className='d-flex justify-content-between'>

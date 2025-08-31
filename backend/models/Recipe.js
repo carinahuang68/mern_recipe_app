@@ -12,7 +12,7 @@ const recipeSchema = new mongoose.Schema({
     difficulty: {
         type: String,
         enum: ['Easy', 'Medium', 'Hard'],
-        required: false
+        required: true
     },
     rating: {
         type: Number,
@@ -23,7 +23,7 @@ const recipeSchema = new mongoose.Schema({
     ingredients: [
         {
             type: String,
-            required: false
+            required: true
         }
     ],
     instructions: {

@@ -73,3 +73,13 @@ button {
 .auth-btn:hover {
     opacity: 1;
 }
+
+.add-btn {
+    background-color: #A8C8FF;
+    /* border: 1px solid var(--primary-color); */
+    color: var(--primary-color);
+}
+
+.add-btn:hover {
+    background-color: #70A5FF;
+}

@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import {AuthProvider} from './context/AuthContext';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Add from './pages/Add';
+import AddRecipe from './pages/AddRecipe';
 
 
 import './App.css';
@@ -19,7 +19,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
-                    <Route path='/add' element={<Add />} />
+                    <Route path='/add' element={<AddRecipe />} />
                 </Routes>
             </main>
 

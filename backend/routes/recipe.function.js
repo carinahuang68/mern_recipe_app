@@ -21,7 +21,7 @@ export const addNewRecipe = async (req, res) => {
         return res.status(400).json({success: false, message: "Please provide all fields"});
     }
 
-    const newRecipe = new Recipe(recipe);
+    const newRecipe = new Recipe({...recipe, createdBy: req.user._id});
 
     try {
         await newRecipe.save();
