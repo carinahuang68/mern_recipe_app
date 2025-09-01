@@ -9,15 +9,6 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const authorize = async () => {
             const token = localStorage.getItem('token');
-            // if (token) {
-            //     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-            //     await axios.get('/api/auth/me')
-            //         .then(response => setUser(response.data))
-            //         .catch(() => {
-            //             localStorage.removeItem('token');
-            //             setUser(null);
-            //         });
-            // }
             if (token) {
                 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
                 try {

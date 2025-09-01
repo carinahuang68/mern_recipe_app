@@ -1,12 +1,13 @@
 import './Home.css'
 import Cards from "../components/Cards";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Catagories from "../components/Catagories";
 import axios from 'axios';
-
+import { AuthContext } from "../context/AuthContext";
 
 
 export default function Home() {
+    const { user } = useContext(AuthContext);
     const [recipes, setRecipes] = useState([]);
     const [catagory, setCategory] = useState("All");
 
@@ -19,9 +20,11 @@ export default function Home() {
             setRecipes(res.data);
         }
         fetchRecipe();
-    }, [catagory]);
+    }, [catagory, user]);
 
-    if (!recipes) return <div>Loading...</div>;
+    // if (!recipes) return <div>Loading...</div>;
+    if (!user) return <div>Loading...</div>;
+
 
     return (
         <div className="mt-4">
