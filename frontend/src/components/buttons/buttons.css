@@ -33,7 +33,7 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 0.4rem 1.6rem;
+    padding: 0.6rem 1.8rem;
 }
 
 #view-button:hover {
@@ -41,17 +41,18 @@ button {
 }
 
 #add-button {
-    background-color: var(--primary-color);
+    background-color: #5aeca8;
+    /* background-color: #F1A707; */
     color: white;
     font-family: var(--primary-font);
     font-size: 1.1rem;
-    padding: 0.5rem 1.5rem;
+    padding: 0.7rem 1.8rem;
     border: none;
     border-radius: 10px;
 }
 
 #add-button:hover {
-    background-color: #341D01;
+    background-color: #43c488;
 }
 
 #card-buttons {
@@ -98,3 +99,15 @@ button {
 .primary-color {
     color: var(--primary-color);
 }
+
+@media (pointer: coarse) {
+    .touch-only {
+      display: block;
+    }
+  }
+  @media (pointer: fine) {
+    .touch-only {
+      display: none;
+    }
+  }
+  
