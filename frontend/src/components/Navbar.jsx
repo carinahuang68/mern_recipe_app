@@ -25,7 +25,7 @@ export default function Navbar() {
             }
             <div className="d-flex justify-content-around align-items-center">
                 {user ? (
-                    <div className="d-flex gap-3">
+                    <div className="d-flex gap-3 d-none d-sm-block">
                         <Link to='/add'>
                             <AddButton />
                         </Link>

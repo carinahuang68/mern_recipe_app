@@ -32,7 +32,7 @@ const recipeSchema = new mongoose.Schema({
     },
     catagory: {
         type: String,
-        enum: ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert'],
+        enum: ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert', 'Meal', 'Dish'],
         required: true
     },
     createdBy: {

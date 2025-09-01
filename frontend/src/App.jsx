@@ -7,6 +7,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import AddRecipe from './pages/AddRecipe';
 import RecipeDetail from './pages/RecipeDetail';
+import EditRecipe from './pages/EditRecipe';
 
 
 import './App.css';
@@ -23,6 +24,7 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path='/add' element={<AddRecipe />} />
                     <Route path='/recipe/:id' element={<RecipeDetail />}/>
+                    <Route path='/edit-recipe/:id' element={<EditRecipe />}/>
                 </Routes>
             </main>
 

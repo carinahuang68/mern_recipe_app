@@ -11,7 +11,7 @@ export default function Home() {
     const [recipes, setRecipes] = useState([]);
     const [catagory, setCategory] = useState("All");
 
-    const catagories = ["All", "Breakfast", "Lunch", "Dinner", "Dessert", "Snack"];
+    const catagories = ["All", "Breakfast", "Meal", "Dish", "Dessert", "Other"];
 
     useEffect(() => {
         const fetchRecipe = async () => {

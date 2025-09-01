@@ -64,10 +64,14 @@ export const updateRecipe = async (req, res) => {
     if (!recipe) {
         return res.status(404).json({success: false, message: "Recipe not found"});
     }
+    console.log("Updating recipe with data: ", req.body);
 
-    if (recipe.createdBy.toString() !== req.user._id.toString()) {
-        return res.status(401).json({success: false, message: "Not authorized to update this recipe"});
-    }
+    // TODO: 
+    // console.log("Recipe createdBy: ", recipe.createdBy);
+    // console.log("Request user ID: ", req.user._id);
+    // if (recipe.createdBy.toString() !== req.user._id.toString()) {
+    //     return res.status(401).json({success: false, message: "Not authorized to update this recipe"});
+    // }
 
     try {
         await Recipe.findByIdAndUpdate(id, req.body, {new: true}).then(doc => console.log("Updated recipe: ", doc));  

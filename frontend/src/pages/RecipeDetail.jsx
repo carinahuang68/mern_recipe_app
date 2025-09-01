@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Rating from "../components/Rating";
@@ -8,6 +8,7 @@ import { faTrash, faPenToSquare, faHouse } from '@fortawesome/free-solid-svg-ico
 export default function RecipeDetail() {
     const { id } = useParams();
     const [recipe, setRecipe] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchRecipe = async () => {
@@ -17,7 +18,16 @@ export default function RecipeDetail() {
         fetchRecipe();
     }, [id]);
 
-
+    const handleDelete = async () => {  
+        if (window.confirm("Are you sure you want to delete this recipe?")) {
+            try {
+                await axios.delete(`/api/recipes/${id}`);
+                navigate('/');
+            } catch (error) {
+                console.error("Error deleting recipe:", error);
+            }
+        }
+    }
 
     if (!recipe) return <div>Loading...</div>;
 
@@ -31,7 +41,7 @@ export default function RecipeDetail() {
             <div className="row">
                 <div className="col col-md-6 col-12">
                     <img src={recipe.image} alt={recipe.name} className="img-fluid mb-4 object-fit-cover" style={{ maxHeight: '60vh' }} />
-                    
+                    <button className='btn primary-color btn-md d-none d-md-block' onClick={() => navigate('/')}><FontAwesomeIcon icon={faHouse} /> Back</button>
                 </div>
                 <div className="col col-md-6 col-12 d-flex flex-column gap-2">
                     <div className="mb-3 d-flex gap-2">
@@ -63,23 +73,14 @@ export default function RecipeDetail() {
                                 ))
                         }
                     </div>
-                    <div className="d-flex gap-3 pb-5">
-                        <button className='btn primary-color btn-md'><FontAwesomeIcon icon={faHouse} /> Back</button>
-                        <button className='btn edit-btn primary-color'>Edit <FontAwesomeIcon icon={faPenToSquare} /></button>
-                        <button className='btn delete-btn primary-color'>Delete <FontAwesomeIcon icon={faTrash} /></button>
+                    <div className="d-flex gap-3">
+                        <button className='btn primary-color btn-md d-inline-block d-md-none' onClick={() => navigate('/')}><FontAwesomeIcon icon={faHouse} /> Back</button>
+                        <button className='btn edit-btn primary-color' onClick={() => navigate(`/edit-recipe/${id}`)}>Edit <FontAwesomeIcon icon={faPenToSquare} /></button>
+                        <button className='btn delete-btn primary-color' onClick={handleDelete}>Delete <FontAwesomeIcon icon={faTrash} /></button>
                     </div>
                 </div>
             </div>
-            {/* <div className="row mt-3">
-                <div className="col col-lg-6 d-flex gap-3">
-                    <button className='btn'>Back</button>
-                    <button className='btn edit-btn'>Edit <FontAwesomeIcon icon={faPenToSquare} /></button>
-                    <button className='btn delete-btn'>Delete <FontAwesomeIcon icon={faTrash} />
-                    </button>
-                </div>
-                <div className="col col-6">
-                </div>
-            </div> */}
+
         </div>
     );
 
