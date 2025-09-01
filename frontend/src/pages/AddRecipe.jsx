@@ -80,7 +80,7 @@ export default function AddRecipe() {
 
                         <div className="d-flex flex-row gap-3">
                             <div className="mb-3">
-                                <label htmlFor="rating" className="form-label">Rating ⭐️</label>
+                                <label htmlFor="rating" className="form-label">Rating<span className="d-none d-sm-inline"> ⭐️</span></label>
                                 <input className="form-control"
                                     type="number"
                                     value={formData.rating}

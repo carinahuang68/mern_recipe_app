@@ -16,12 +16,12 @@ export default function Navbar() {
     }
 
     return (
-        <nav id="top" className='d-flex flex-column flex-sm-row row-gap-2'>
+        <nav id="top" className='d-flex flex-column flex-sm-row row-gap-2 shadow'>
             <Link to='/' className="align-self-center">
                 <Logo />
             </Link>
             {
-                user && <div className='align-self-center'><h2 className='my-0 py-0'>{user.username}</h2></div>
+                user && <div className='align-self-center d-none d-md-block'><h2 className='my-0 py-0'>{user.username}</h2></div>
             }
             <div className="d-flex justify-content-around align-items-center">
                 {user ? (

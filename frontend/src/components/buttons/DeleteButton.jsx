@@ -4,7 +4,7 @@ import './buttons.css'
 
 export default function DeleteButton({onClick}) {
     return (
-        <button type="button" className="mini-button" id="delete-btn" onClick={onClick}>
+        <button type="button" className="mini-button btn" onClick={onClick}>
             <FontAwesomeIcon icon={faTrash} />
         </button>
     )
