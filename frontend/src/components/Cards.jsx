@@ -12,7 +12,7 @@ export default function Cards({ recipes }) {
         recipes.length === 0 ? (
             <div className="d-flex flex-column align-items-center mt-5">
                 <h4 className='mb-3'>No recipes found</h4>
-                <p className='text-secondary'>Click the button below to add a new recipe!</p>
+                <p className='text-secondary'>Click the button below to add your own recipe!</p>
                 <AddButton />
             </div>) : (
             <div className="container py-4">
