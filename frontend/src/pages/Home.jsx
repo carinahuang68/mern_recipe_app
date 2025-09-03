@@ -29,7 +29,7 @@ export default function Home() {
         <div className='container'>
             <div className="row">
                 <div className='col'></div>
-                <div className='col-lg-8 col-md-12'>
+                <div className='col-lg-10 col-md-12'>
                     <div className="d-flex flex-column align-items-center mt-4">
                             <h4 className='mb-3'>Waiting for user authentication...</h4>
                             <p className='text-secondary'>Please <Link to='/login'><a className='link'>login</a></Link> or <Link to='/register'><a className='link'>register</a></Link> an account!</p>
