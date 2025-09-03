@@ -23,7 +23,7 @@ export default function Home() {
     }, [catagory, user]);
 
     // if (!recipes) return <div>Loading...</div>;
-    if (!user) return <div>Loading...</div>;
+    if (!user) return <div className="mt-4 text-center">Waiting for user authentication...</div>;
 
 
     return (
