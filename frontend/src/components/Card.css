@@ -2,7 +2,7 @@
 .card-title {
     font-weight: bold;
     color: var(--primary-color);
-    letter-spacing: 1px;
+    /* letter-spacing: 1px; */
 }
 
 .card:hover {
