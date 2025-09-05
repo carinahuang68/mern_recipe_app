@@ -18,6 +18,10 @@ const recipeSchema = new mongoose.Schema({
         type: Number,
         min: 1,
         max: 5,
+        required: false
+    },
+    time: {
+        type: Number, // in minutes
         required: true
     },
     ingredients: [

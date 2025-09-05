@@ -9,11 +9,10 @@ export default function AddRecipe() {
         name: "",
         image: "",
         difficulty: "",
-        rating: 0,
         ingredients: [],
         instructions: "",
         catagory: "",
-        public: true
+        time: 0
     }
 
     const onSubmit = async (data) => {

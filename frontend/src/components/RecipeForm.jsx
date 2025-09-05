@@ -65,15 +65,14 @@ export default function RecipeForm({onSubmit, initialFormData, submitLabel}) {
 
             <div className="d-flex flex-row gap-3">
                 <div className="mb-3">
-                    <label htmlFor="rating" className="form-label">Rating<span className="d-none d-sm-inline"> ⭐️</span></label>
+                    <label htmlFor="time" className="form-label">Time required (min)</label>
                     <input className="form-control"
                         type="number"
-                        value={formData.rating}
-                        onChange={(e) => handleInputChange("rating", e.target.value)}
-                        id="image"
-                        required
-                        min={1}
-                        max={5} />
+                        value={formData.time}
+                        onChange={(e) => handleInputChange("time", e.target.value)}
+                        id="time"
+                        required 
+                        min="0"/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="difficulty" className="form-label">Catagory</label>

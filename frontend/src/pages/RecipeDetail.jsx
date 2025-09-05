@@ -51,7 +51,7 @@ export default function RecipeDetail() {
                         <strong>Difficulty: </strong> {recipe.difficulty}
                     </div>
                     <div className="mb-3 d-flex align-items-center gap-2">
-                        <strong>Rating: </strong> <Rating rating={recipe.rating} />
+                        <strong>Time required: </strong> {recipe.time} min
                     </div>
                     <div className="mb-3">
                         <h3>Ingredients:</h3>
