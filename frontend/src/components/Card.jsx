@@ -23,7 +23,7 @@ export default function Card({ recipe }) {
                     <div className="card-title">{recipe.name}</div>
                     {/* <div className="card-text">Category {recipe.catagory}</div> */}
                     {/* <Rating rating={recipe.rating} /> */}
-                    <div className="card-text text-secondary">Time required: {recipe.time} min</div>
+                    <div className="card-text text-secondary">⏱️ Time required: {recipe.time} min</div>
                     <button id="view-button" className='touch-only' onClick={() => navigate(`/recipe/${recipe._id}`)}>View Recipe</button>
                 </div>
             </div>
